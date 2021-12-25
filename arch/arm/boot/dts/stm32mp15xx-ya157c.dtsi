@@ -480,6 +480,7 @@
 
 
 /* Bluetooth */
+/*
 &uart7 {
 	pinctrl-names = "default", "sleep", "idle";
 	pinctrl-0 = <&uart7_pins_myir>;
@@ -496,6 +497,7 @@
 	};
 
 };
+*/
 
 /*SPI1 for A7 core*/
 /*
