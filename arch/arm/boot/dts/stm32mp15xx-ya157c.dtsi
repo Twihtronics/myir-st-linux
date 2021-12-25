@@ -88,11 +88,12 @@
 
 	};
 
+	/*
 	wifi_pwrseq: wifi-pwrseq {
 		compatible = "mmc-pwrseq-simple";
 		reset-gpios = <&gpiof 3 GPIO_ACTIVE_LOW>;
 	};
-
+	*/
 	
 	panel_backlight: panel-backlight {
 		compatible = "gpio-backlight";
@@ -328,7 +329,7 @@
 &dsi {
 	#address-cells = <1>;
 	#size-cells = <0>;
-	status = "okay";
+	status = "disable";
 
 };
 
@@ -374,7 +375,7 @@
      #address-cells = <1>;
      #size-cells = <0>;
      keep-power-in-suspend;
-     status = "okay";
+     status = "disable";
  
      brcmf: bcrmf@1 {
          reg = <1>;
@@ -438,7 +439,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&m_can1_pins_a_myir>;
 	//pinctrl-1 = <&m_can1_sleep_pins_a_myir>;
-	status = "okay";
+	status = "disable";
 
 	can-transceiver {
 		max-bitrate = <5000000>;
@@ -462,7 +463,7 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&uart8_pins_mx>;
 	pinctrl-1 = <&uart8_sleep_pins_mx>;
-	status = "okay";
+	status = "disable";
 };
 
 /*rs485*/
@@ -474,7 +475,7 @@
 	/delete-property/dmas;
 	/delete-property/dma-names;
 
-        status = "okay";
+        status = "disable";
 };
 
 
@@ -485,7 +486,7 @@
 	pinctrl-1 = <&uart7_sleep_pins_myir>;
 	pinctrl-2 = <&uart7_idle_pins_myir>;
 	uart-has-rtscts;
-	status = "okay";
+	status = "disable";
 
 	bluetooth {
 		pinctrl-names = "default";
@@ -503,7 +504,7 @@
         pinctrl-0 = <&spi1_pins_a>;
         pinctrl-1 = <&spi1_sleep_pins_a>;
 	    cs-gpios = <&gpioz 3 0>;
-        status = "okay";
+        status = "disable";
 	spidev@0 {     
        		 compatible = "spidev";
         	spi-max-frequency = <20000000>;
@@ -518,7 +519,7 @@
 &m4_spi1 {
    pinctrl-names = "rproc_default";
    pinctrl-0 = <&m4_spi1_pins_z_mx>;
-   status = "okay";
+   status = "disable";
 
 };
 

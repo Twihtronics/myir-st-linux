@@ -1478,6 +1478,7 @@
 			
 
 &pinctrl_z {
+			/*
 			btreg: bt_reg_on-0 {
 				pins {
 					pinmux = <STM32_PINMUX('Z', 6, GPIO)>;
@@ -1487,6 +1488,7 @@
 					slew-rate = <0>;
 				};
 			};
+			*/
 
 			i2c4_pins_a: i2c4-0 {
 				pins {

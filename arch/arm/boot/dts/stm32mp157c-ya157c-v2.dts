@@ -153,7 +153,7 @@
 &sdmmc3 {
 	vmmc-supply = <&vmmcsd_fixed>;
 	mmc-pwrseq = <&wifi_pwrseq>;
-	status = "okay";
+	status = "disable";
 
 };
 
