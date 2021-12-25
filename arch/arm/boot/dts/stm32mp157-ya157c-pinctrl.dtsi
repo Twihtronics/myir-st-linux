@@ -1383,6 +1383,7 @@
 				};
 			};
 
+			/*
 			btreg0: bt_reg_on-0 {
 				pins {
 					pinmux = <STM32_PINMUX('F', 15, GPIO)>;
@@ -1392,7 +1393,7 @@
 					slew-rate = <0>;
 				};
 			};
-
+			*/
 
 			usbotg_hs_pins_a: usbotg_hs-0 {
 				pins {

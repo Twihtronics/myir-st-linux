@@ -361,7 +361,7 @@
 };
 
 /* Wifi */
-&sdmmc3 {
+/8&sdmmc3 {
      arm,primecell-periphid = <0x10153180>;
      pinctrl-names = "default", "opendrain", "sleep";
      pinctrl-0 = <&sdmmc3_b4_pins_a>;
@@ -381,7 +381,7 @@
          reg = <1>;
          compatible = "brcm,bcm4329-fmac";
      };
-};
+};*/
 
 
 /*SD card*/
