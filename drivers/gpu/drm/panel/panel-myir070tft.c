@@ -321,6 +321,31 @@ static void myir_panel_shutdown(struct platform_device *pdev)
 
 static const struct display_timing myir_070tft_timing = {
    //myir ya157c
+	.pixelclock = {23000000,25000000,27000000},
+	.hactive = {800,800,800},
+	.hfront_porch = {4,8,48},
+	.hback_porch = {4,8,48},
+	.hsync_len = {2,4,8},
+	.vactive = {480,480,480},
+	.vfront_porch = {4,8,12},
+	.vback_porch = {4,8,12},
+	.vsync_len = {2,4,8},
+};
+
+static const struct myir_panel_desc myir_070tft = {
+	.timings = &myir_070tft_timing,
+	.num_timings = 1,
+	.bpc = 8,
+	.size = {
+		.width = 97,
+		.height = 56,
+
+	},
+	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
+};
+
+/*static const struct display_timing myir_070tft_timing = {
+   //myir ya157c
 	.pixelclock = {33000000,33000000,33000000},
 	.hactive = {800,800,800},
 	.hfront_porch = {210,210,210},
@@ -338,7 +363,7 @@ static const struct display_timing myir_070tft_timing = {
 static const struct myir_panel_desc myir_070tft = {
 	.timings = &myir_070tft_timing,
 	.num_timings = 1,
-	.bpc = 6,
+	.bpc = 6z,
 	.size = {
 		.width = 154,
 		.height = 86,
@@ -348,6 +373,7 @@ static const struct myir_panel_desc myir_070tft = {
 	//.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_POSEDGE,
 
 };
+*/
 
 static const struct of_device_id platform_of_match[] = {
 	{
