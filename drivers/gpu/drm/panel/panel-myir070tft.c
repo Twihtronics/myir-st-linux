@@ -52,8 +52,7 @@ struct myir_panel {
 	struct regulator *dvdd;
 	struct regulator *avdd;
 	struct gpio_desc *enable_gpio;
-        struct gpio_desc *reset_gpio;
- 
+    struct gpio_desc *reset_gpio;
 };
 
 static inline struct myir_panel *to_myir_panel(struct drm_panel *panel)
@@ -130,11 +129,22 @@ static int myir_panel_disable(struct drm_panel *panel)
 {
 	struct myir_panel *p = to_myir_panel(panel);
 printk("test9 myir_panel\n");
+
 	if (!p->enabled)
 		return 0;
+
+	
+	if (p->backlight) {
+		p->backlight->props.power = FB_BLANK_POWERDOWN;
+		p->backlight->props.state |= BL_CORE_FBBLANK;
+		backlight_update_status(p->backlight);
+	}
+
 	printk("test 6 panel disable\n");
+	
 	gpiod_set_value_cansleep(p->enable_gpio, 0);
 	gpiod_set_value_cansleep(p->reset_gpio, 0);
+	
 	p->enabled = false;
 
 	return 0;
@@ -146,9 +156,10 @@ static int myir_panel_unprepare(struct drm_panel *panel)
 
 	if (!p->prepared)
 		return 0;
-printk("test8 panel unprepaer\n");
-//	regulator_disable(p->avdd);
-printk("test5 panel unprepare\n");
+	
+	printk("test8 panel unprepaer\n");
+	//	regulator_disable(p->avdd);	
+	printk("test5 panel unprepare\n");
 	/* Add a 100ms delay as per the panel datasheet */
 	msleep(100);
 
@@ -167,12 +178,14 @@ static int myir_panel_prepare(struct drm_panel *panel)
 
 	if (p->prepared)
 		return 0;
-	printk("test7 myir prepaer\n");
+	
+	printk("test7 myir prepare\n");
 
 	/* Add a 100ms delay as per the panel datasheet */
 	msleep(10);
+	
 	gpiod_set_value_cansleep(p->enable_gpio, 1);
-	  usleep_range(10, 20);
+	usleep_range(10, 20);
 	gpiod_set_value_cansleep(p->reset_gpio, 1);
 
         usleep_range(10, 20);
@@ -188,7 +201,14 @@ static int myir_panel_enable(struct drm_panel *panel)
 
 	if (p->enabled)
 		return 0;
-printk("myir panel enable\n");
+	
+	printk("myir panel enable\n");
+
+	if (p->backlight) {
+		p->backlight->props.state &= ~BL_CORE_FBBLANK;
+		p->backlight->props.power = FB_BLANK_UNBLANK;
+		backlight_update_status(p->backlight);
+	}
 
 	p->enabled = true;
 
@@ -229,40 +249,45 @@ static const struct drm_panel_funcs myir_panel_funcs = {
 	.get_timings = myir_panel_get_timings,
 };
 
-static int myir_panel_probe(struct device *dev,
-					const struct myir_panel_desc *desc)
+static int myir_panel_probe(struct device *dev, const struct myir_panel_desc *desc)
 {
 	struct device_node *backlight;
 	struct myir_panel *panel;
 	int err,ret;
 
 	panel = devm_kzalloc(dev, sizeof(*panel), GFP_KERNEL);
+
 	if (!panel)
+	{
 		return -ENOMEM;
+	}
 
 	panel->enabled = false;
 	panel->prepared = false;
 	panel->desc = desc;
 
-
-	
 	panel->enable_gpio = devm_gpiod_get(dev, "enable", GPIOD_OUT_HIGH);
-        if (IS_ERR(panel->enable_gpio)) {
-                ret = PTR_ERR(panel->enable_gpio);
-                dev_err(dev, "cannot get enable-gpio %d\n", ret);
-                return ret;
-        }
- printk("test4 proble panel->reset :%d\n",IS_ERR(panel->enable_gpio));
+	
+	if (IS_ERR(panel->enable_gpio)) 
+	{
+			ret = PTR_ERR(panel->enable_gpio);
+			dev_err(dev, "cannot get enable-gpio %d\n", ret);
+			return ret;
+	}
 
-        panel->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
-        if (IS_ERR(panel->reset_gpio)) {
-                ret = PTR_ERR(panel->reset_gpio);
-                dev_err(dev, "cannot get reset-gpios %d\n", ret);
-                return ret;
-        }
+ 	printk("test4 proble panel->reset :%d\n",IS_ERR(panel->enable_gpio));
+
+    panel->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
+
+	if (IS_ERR(panel->reset_gpio)) 
+	{
+			ret = PTR_ERR(panel->reset_gpio);
+			dev_err(dev, "cannot get reset-gpios %d\n", ret);
+			return ret;
+	}
+
 	printk("test3 proble panel->reset :%d\n",IS_ERR(panel->reset_gpio));
 	
-
 /*
 	panel->dvdd = devm_regulator_get(dev, "dvdd");
 	if (IS_ERR(panel->dvdd))
@@ -271,16 +296,20 @@ static int myir_panel_probe(struct device *dev,
 	panel->avdd = devm_regulator_get(dev, "avdd");
 	if (IS_ERR(panel->avdd))
 		return PTR_ERR(panel->avdd);
-
+*/
 	backlight = of_parse_phandle(dev->of_node, "backlight", 0);
-	if (backlight) {
+	
+	if (backlight) 
+	{
+		printk("myir panel backlight node found\n");
+
 		panel->backlight = of_find_backlight_by_node(backlight);
 		of_node_put(backlight);
 
 		if (!panel->backlight)
 			return -EPROBE_DEFER;
 	}
-*/
+
 	drm_panel_init(&panel->base);
 	panel->base.dev = dev;
 	panel->base.funcs = &myir_panel_funcs;
@@ -306,7 +335,10 @@ static int myir_panel_remove(struct platform_device *pdev)
 	myir_panel_disable(&panel->base);
 	myir_panel_unprepare(&panel->base);
 
-printk("test2 myir panel remove\n");
+	if (panel->backlight)
+		put_device(&panel->backlight->dev);
+
+	printk("test2 myir panel remove\n");
 
 	return 0;
 }
