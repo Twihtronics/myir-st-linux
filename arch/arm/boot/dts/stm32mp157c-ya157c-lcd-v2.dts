@@ -19,9 +19,9 @@
         	pinctrl-0 = <&ltdc_pins_a>;
         	pinctrl-1 = <&ltdc_pins_sleep_a>;
 		enable-gpios = <&gpioz 6 GPIO_ACTIVE_HIGH>;
-        	reset-gpios = <&gpioe 11 GPIO_ACTIVE_HIGH>;
+        	reset-gpios = <&gpioz 7 GPIO_ACTIVE_HIGH>;
 
-		backlight = <&panel_backlight>;
+		//backlight = <&panel_backlight>;
        	 	status = "okay";
 		
 		port {

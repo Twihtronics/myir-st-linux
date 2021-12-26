@@ -95,13 +95,14 @@
 	};
 	*/
 	
+	/*
 	panel_backlight: panel-backlight {
 		compatible = "gpio-backlight";
 		gpios = <&gpioz 7 GPIO_ACTIVE_HIGH>;
 		default-on;	
 		status = "okay";
 	};
-
+*/
 	/*
 	panel_backlight: panel-backlight {
 		compatible = "pwm-backlight";
