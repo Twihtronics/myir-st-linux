@@ -134,11 +134,11 @@ printk("test9 myir_panel\n");
 		return 0;
 
 	
-	if (p->backlight) {
+	/*if (p->backlight) {
 		p->backlight->props.power = FB_BLANK_POWERDOWN;
 		p->backlight->props.state |= BL_CORE_FBBLANK;
 		backlight_update_status(p->backlight);
-	}
+	}*/
 
 	printk("test 6 panel disable\n");
 	
@@ -204,11 +204,11 @@ static int myir_panel_enable(struct drm_panel *panel)
 	
 	printk("myir panel enable\n");
 
-	if (p->backlight) {
+	/*if (p->backlight) {
 		p->backlight->props.state &= ~BL_CORE_FBBLANK;
 		p->backlight->props.power = FB_BLANK_UNBLANK;
 		backlight_update_status(p->backlight);
-	}
+	}*/
 
 	p->enabled = true;
 
@@ -296,7 +296,7 @@ static int myir_panel_probe(struct device *dev, const struct myir_panel_desc *de
 	panel->avdd = devm_regulator_get(dev, "avdd");
 	if (IS_ERR(panel->avdd))
 		return PTR_ERR(panel->avdd);
-*/
+
 	backlight = of_parse_phandle(dev->of_node, "backlight", 0);
 	
 	if (backlight) 
@@ -308,7 +308,7 @@ static int myir_panel_probe(struct device *dev, const struct myir_panel_desc *de
 
 		if (!panel->backlight)
 			return -EPROBE_DEFER;
-	}
+	}*/
 
 	drm_panel_init(&panel->base);
 	panel->base.dev = dev;
