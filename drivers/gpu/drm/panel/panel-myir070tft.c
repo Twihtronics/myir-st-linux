@@ -157,9 +157,9 @@ static int myir_panel_unprepare(struct drm_panel *panel)
 	if (!p->prepared)
 		return 0;
 	
-	printk("test8 panel unprepaer\n");
+	printk("panel unprepaer\n");
 	//	regulator_disable(p->avdd);	
-	printk("test5 panel unprepare\n");
+	printk("panel unprepare\n");
 	/* Add a 100ms delay as per the panel datasheet */
 	msleep(100);
 
@@ -179,7 +179,7 @@ static int myir_panel_prepare(struct drm_panel *panel)
 	if (p->prepared)
 		return 0;
 	
-	printk("test7 myir prepare\n");
+	printk("myir panel prepare\n");
 
 	/* Add a 100ms delay as per the panel datasheet */
 	msleep(10);
@@ -275,7 +275,7 @@ static int myir_panel_probe(struct device *dev, const struct myir_panel_desc *de
 			return ret;
 	}
 
- 	printk("test4 proble panel->reset :%d\n",IS_ERR(panel->enable_gpio));
+ 	printk("devm_gpiod_get probe panel->gpio :%d\n",IS_ERR(panel->enable_gpio));
 
     panel->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
 
@@ -286,7 +286,7 @@ static int myir_panel_probe(struct device *dev, const struct myir_panel_desc *de
 			return ret;
 	}
 
-	printk("test3 proble panel->reset :%d\n",IS_ERR(panel->reset_gpio));
+	printk("devm_gpiod_get probe panel->reset :%d\n",IS_ERR(panel->reset_gpio));
 	
 /*
 	panel->dvdd = devm_regulator_get(dev, "dvdd");
@@ -338,7 +338,7 @@ static int myir_panel_remove(struct platform_device *pdev)
 	if (panel->backlight)
 		put_device(&panel->backlight->dev);
 
-	printk("test2 myir panel remove\n");
+	printk("myir panel remove\n");
 
 	return 0;
 }
@@ -348,7 +348,7 @@ static void myir_panel_shutdown(struct platform_device *pdev)
 	struct myir_panel *panel = dev_get_drvdata(&pdev->dev);
 
 	myir_panel_disable(&panel->base);
-	printk("test1 myir panel shutdown\n");
+	printk("myir panel shutdown\n");
 }
 
 static const struct display_timing myir_070tft_timing = {
