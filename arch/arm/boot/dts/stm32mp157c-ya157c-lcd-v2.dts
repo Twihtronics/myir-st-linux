@@ -21,7 +21,7 @@
 		enable-gpios = <&gpioz 6 GPIO_ACTIVE_HIGH>;
         	reset-gpios = <&gpioe 11 GPIO_ACTIVE_HIGH>;
 
-		//backlight = <&panel_backlight>;
+		backlight = <&panel_backlight>;
        	 	status = "okay";
 		
 		port {
