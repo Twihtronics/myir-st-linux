@@ -154,7 +154,6 @@
 	vmmc-supply = <&vmmcsd_fixed>;
 	mmc-pwrseq = <&wifi_pwrseq>;
 	status = "disable";
-
 };*/
 
 /*emmc*/
