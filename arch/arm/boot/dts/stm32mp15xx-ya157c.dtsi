@@ -75,13 +75,13 @@
         	compatible = "gpio-leds";
         	blue {
         		label = "heartbeat";
-        		gpios = <&gpioh 6 GPIO_ACTIVE_HIGH>;
+        		gpios = <&gpioz 6 GPIO_ACTIVE_HIGH>;
         		linux,default-trigger = "heartbeat";
         		default-state = "off";
         	};
             red {
                 label = "red";
-                gpios = <&gpioh 7 GPIO_ACTIVE_HIGH>;
+                gpios = <&gpioz 7 GPIO_ACTIVE_HIGH>;
                 linux,default-trigger = "none";
                 status = "okay";
             };
@@ -98,7 +98,7 @@
 	/*
 	panel_backlight: panel-backlight {
 		compatible = "gpio-backlight";
-		gpios = <&gpioz 7 GPIO_ACTIVE_HIGH>;
+		gpios = <&gpioe 4 GPIO_ACTIVE_HIGH>;
 		default-on;	
 		status = "okay";
 	};
