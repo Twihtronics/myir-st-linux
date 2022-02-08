@@ -19,7 +19,7 @@
         	pinctrl-0 = <&ltdc_pins_a>;
         	pinctrl-1 = <&ltdc_pins_sleep_a>;
 		enable-gpios = <&gpioe 11 GPIO_ACTIVE_HIGH>;
-        	reset-gpios = <&gpiob 12 GPIO_ACTIVE_HIGH>;			
+        	reset-gpios = <&gpioe 4 GPIO_ACTIVE_HIGH>;			
 
 		//backlight = <&panel_backlight>;
        	 	status = "okay";

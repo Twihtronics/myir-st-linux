@@ -188,7 +188,7 @@ static int myir_panel_prepare(struct drm_panel *panel)
 	usleep_range(10, 20);
 	gpiod_set_value_cansleep(p->reset_gpio, 1);
 
-        usleep_range(10, 20);
+    usleep_range(10, 20);
 	p->prepared = true;
 
 	return 0;
