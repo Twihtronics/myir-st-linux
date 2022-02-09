@@ -279,7 +279,6 @@
 };
 */
 
-/*
 &i2c4 {
 	pinctrl-names = "default", "sleep";
         pinctrl-0 = <&i2c4_pins_a>;
@@ -306,7 +305,6 @@
       };
 	
 };
-*/
 
 /*
 &i2c4 {
@@ -317,7 +315,7 @@
 	i2c-scl-falling-time-ns = <20>;
 	clock-frequency = <400000>;
 	status = "okay";
-	//spare dmas for other usage
+	//spare dmas for other usage;
 	/delete-property/dmas;
 	/delete-property/dma-names;
 
@@ -346,7 +344,6 @@
 	};
 };
 */
-
 
 &ipcc {
 	status = "okay";
@@ -666,6 +663,7 @@
 };
 
 /*otg*/
+/*
 &usbotg_hs {
 	phys = <&usbphyc_port1 0>;
 	phy-names = "usb2-phy";
@@ -678,6 +676,7 @@
 		};
 	};
 };
+*/
 
 &usbphyc {
 	status = "okay";
