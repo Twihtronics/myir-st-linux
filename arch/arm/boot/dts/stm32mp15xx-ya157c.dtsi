@@ -294,13 +294,13 @@
               compatible ="edt,edt-ft5x06";
               reg = <0x38>;
 
-              interrupts = <4  IRQ_TYPE_EDGE_FALLING>;
+              interrupts = <5  IRQ_TYPE_EDGE_FALLING>;
               interrupt-parent = <&gpioh>;
               interrupt-controller;
               touchscreen-size-x = <800>;
               touchscreen-size-y = <480>;
 
-              reset-gpios = <&gpioh 5 GPIO_ACTIVE_LOW>;
+              reset-gpios = <&gpioh 4 GPIO_ACTIVE_LOW>;
               status = "okay";
       };
 	
