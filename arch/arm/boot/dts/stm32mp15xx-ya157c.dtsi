@@ -81,7 +81,7 @@
         	};
             red {
                 label = "red";
-                gpios = <&gpioz 6 GPIO_ACTIVE_HIGH>;
+                gpios = <&gpioz 6 GPIO_ACTIVE_LOW>;
                 linux,default-trigger = "none";
                 status = "okay";
             };
@@ -277,7 +277,7 @@
       };
 	
 };
-
+/*
 &i2c4 {
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&i2c4_pins_a>;
@@ -314,7 +314,7 @@
 		};
 	};
 };
-
+*/
 
 &ipcc {
 	status = "okay";
