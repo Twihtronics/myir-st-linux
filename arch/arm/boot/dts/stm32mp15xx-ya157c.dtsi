@@ -277,6 +277,7 @@
       };
 	
 };
+
 /*
 &i2c4 {
 	pinctrl-names = "default", "sleep";
@@ -286,7 +287,7 @@
 	i2c-scl-falling-time-ns = <20>;
 	clock-frequency = <400000>;
 	status = "okay";
-	/* spare dmas for other usage */
+	//spare dmas for other usage
 	/delete-property/dmas;
 	/delete-property/dma-names;
 
@@ -315,6 +316,7 @@
 	};
 };
 */
+
 
 &ipcc {
 	status = "okay";
