@@ -59,7 +59,7 @@
 	};
 
 
-	joystick {
+	/*joystick {
 	        compatible = "gpio-keys";
         	#size-cells = <0>;
         	button-0 {
@@ -68,7 +68,7 @@
                 	interrupt-parent = <&gpioi>;
                 	interrupts = <11 IRQ_TYPE_EDGE_RISING>;
         	};
-	};
+	};*/
 
 
 	led {
