@@ -250,7 +250,6 @@
 	status = "okay";
 };
 
-/*
 &i2c2 {
 	pinctrl-names = "default", "sleep";
         pinctrl-0 = <&i2c2_pins_a>;
@@ -277,8 +276,8 @@
       };
 	
 };
-*/
 
+/*
 &i2c4 {
 	pinctrl-names = "default", "sleep";
         pinctrl-0 = <&i2c4_pins_a>;
@@ -305,6 +304,7 @@
       };
 	
 };
+*/
 
 /*
 &i2c4 {
