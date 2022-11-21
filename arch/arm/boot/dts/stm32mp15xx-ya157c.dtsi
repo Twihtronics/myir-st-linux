@@ -559,7 +559,7 @@
 
 &m4_i2c2 {
 	status = "disable";
-}
+};
 
 
 &sram {
