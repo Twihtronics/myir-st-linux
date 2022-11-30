@@ -254,12 +254,12 @@
 	pinctrl-names = "default", "sleep";
     pinctrl-0 = <&i2c2_pins_a>;
     pinctrl-1 = <&i2c2_pins_sleep_a>;
-    i2c-scl-rising-time-ns = <100>;
-    i2c-scl-falling-time-ns = <7>;
+    //i2c-scl-rising-time-ns = <100>;
+    //i2c-scl-falling-time-ns = <7>;
     status = "okay";
     /delete-property/dmas;
     /delete-property/dma-names;
-	//clock-frequency = <400000>;
+	clock-frequency = <100000>;
 	
 	touchscreen@38 {
               compatible ="edt,edt-ft5x06";
@@ -289,7 +289,7 @@
 &dsi {
 	#address-cells = <1>;
 	#size-cells = <0>;
-	status = "disable";
+	status = "disabled";
 
 };
 
@@ -375,7 +375,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&m_can1_pins_a_myir>;
 	//pinctrl-1 = <&m_can1_sleep_pins_a_myir>;
-	status = "disable";
+	status = "disabled";
 
 	can-transceiver {
 		max-bitrate = <5000000>;
@@ -399,7 +399,7 @@
 	pinctrl-names = "default", "sleep";
 	pinctrl-0 = <&uart8_pins_mx>;
 	pinctrl-1 = <&uart8_sleep_pins_mx>;
-	status = "disable";
+	status = "disabled";
 };
 
 /*rs485*/
@@ -422,7 +422,7 @@
         pinctrl-0 = <&spi1_pins_a>;
         pinctrl-1 = <&spi1_sleep_pins_a>;
 	    cs-gpios = <&gpioz 3 0>;
-        status = "disable";
+        status = "disabled";
 	spidev@0 {     
        		 compatible = "spidev";
         	spi-max-frequency = <20000000>;
@@ -437,7 +437,7 @@
 &m4_spi1 {
    pinctrl-names = "rproc_default";
    pinctrl-0 = <&m4_spi1_pins_z_mx>;
-   status = "disable";
+   status = "disabled";
 
 };
 
@@ -562,18 +562,20 @@
 */
 
 &usbphyc {
-	status = "okay";
+	status = "disabled";
 	
 };
 
 &usbphyc_port0 {
 	phy-supply = <&vdd_usb>;
 	st,phy-tuning = <&usb_phy_tuning>;
+	status = "disabled";
 };
 
 &usbphyc_port1 {
 	phy-supply = <&vdd_usb>;
 	st,phy-tuning = <&usb_phy_tuning>;
+	status = "disabled";
 };
 
 &vrefbuf {
