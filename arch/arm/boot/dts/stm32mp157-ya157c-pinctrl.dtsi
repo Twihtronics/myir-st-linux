@@ -451,8 +451,8 @@
 				pins {
 					pinmux = <STM32_PINMUX('H', 4, AF4)>, /* I2C2_SCL */
 						 <STM32_PINMUX('H', 5, AF4)>; /* I2C2_SDA */
-					//bias-disable;
-					bias-pull-up;
+					bias-disable;
+					//bias-pull-up;
 					drive-open-drain;
 					slew-rate = <0>;
 				};
