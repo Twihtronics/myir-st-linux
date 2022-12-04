@@ -546,6 +546,7 @@
 };
 
 /*otg*/
+/*
 &usbotg_hs {
 	phys = <&usbphyc_port1 0>;
 	phy-names = "usb2-phy";
@@ -558,6 +559,7 @@
 		};
 	};
 };
+*/
 
 &usbphyc {
 	status = "disabled";
