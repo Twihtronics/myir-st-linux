@@ -442,7 +442,7 @@
 };
 
 &m4_dma2{
-status = "okay"
+status = "okay";
 };
 
 &m4_uart5 {
