@@ -441,10 +441,14 @@
 
 };
 
+&m4_dma2{
+status = "okay"
+};
+
 &m4_uart5 {
    pinctrl-names = "rproc_default";
    pinctrl-0 = <&m4_uart5_pins_mx>;
-   status = "okay"
+   status = "okay";
 };
 
 &sram {
