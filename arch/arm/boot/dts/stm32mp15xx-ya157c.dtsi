@@ -560,7 +560,7 @@ status = "okay";
 	//phys = <&usbphyc_port1 0>;
 phys = <&usbphyc_port1>;
 	//phy-names = "usb2-phy";
-	phy-names = "usb"
+	phy-names = "usb";
 	//usb-role-switch;
 	status = "okay";
 
