@@ -411,7 +411,7 @@
 	/delete-property/dmas;
 	/delete-property/dma-names;
 
-        status = "disabled";
+        status = "okay";
 };
 
 
@@ -442,14 +442,14 @@
 };
 
 &m4_dma2{
-status = "okay";
+status = "disabled";
 };
 
-&m4_uart5 {
-   pinctrl-names = "rproc_default";
-   pinctrl-0 = <&m4_uart5_pins_mx>;
-   status = "okay";
-};
+//&m4_uart5 {
+//   pinctrl-names = "rproc_default";
+//   pinctrl-0 = <&m4_uart5_pins_mx>;
+//   status = "okay";
+//};
 
 &sram {
 	dma_pool: dma_pool@0 {
