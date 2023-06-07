@@ -1152,7 +1152,7 @@
 
 			uart5_pins_a: uart5-0 {
                                 pins1 {
-                                        pinmux = <STM32_PINMUX('B', 6, AF12)>; /* UART5_TX */
+                                        pinmux = <STM32_PINMUX('B', 13, AF14)>; /* UART5_TX */
 						//<STM32_PINMUX('C', 8, AF8)>, /* UART5_DE */
                                         bias-disable;
                                         drive-push-pull;
@@ -1166,7 +1166,7 @@
 
                         uart5_idle_pins_a: uart5-idle-0 {
                                 pins1 {
-                                        pinmux = <STM32_PINMUX('B', 6, ANALOG)>; /* UART5_TX */
+                                        pinmux = <STM32_PINMUX('B', 13, ANALOG)>; /* UART5_TX */
 					//<STM32_PINMUX('C', 8, ANALOG)>, /* UART5_DE */
                                 };
                                 pins2 {
@@ -1177,7 +1177,7 @@
 
                         uart5_sleep_pins_a: uart5-sleep-0 {
                                 pins {
-                                        pinmux = <STM32_PINMUX('B', 6, ANALOG)>, /* UART5_TX */
+                                        pinmux = <STM32_PINMUX('B', 13, ANALOG)>, /* UART5_TX */
                                                  <STM32_PINMUX('B', 5, ANALOG)>; /* UART5_RX */
 						//<STM32_PINMUX('C', 8, ANALOG)>, /* UART5_DE */
                                 };

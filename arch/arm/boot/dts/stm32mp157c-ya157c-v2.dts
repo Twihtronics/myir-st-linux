@@ -19,9 +19,9 @@
 	aliases {
 		ethernet0 = &ethernet0;
 		serial0 = &uart4;
-		serial2 = &uart8;//rs232
-		serial3 = &uart5;//rs485
-		serial4 = &uart7;//bt
+		//serial2 = &uart8;//rs232
+		serial2 = &uart5;//rs485
+		//serial4 = &uart7;//bt
 	};
 
 	chosen {
