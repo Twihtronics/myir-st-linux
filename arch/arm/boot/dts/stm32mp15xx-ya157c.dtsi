@@ -404,14 +404,14 @@
 
 /*rs485*/
 &uart5 {
-       pinctrl-names = "default", "sleep","idle";
-        pinctrl-0 = <&uart5_pins_a>;
-        pinctrl-1 = <&uart5_sleep_pins_a>;
+    pinctrl-names = "default", "sleep","idle";
+	pinctrl-0 = <&uart5_pins_a>;
+	pinctrl-1 = <&uart5_sleep_pins_a>;
 	pinctrl-2 = <&uart5_idle_pins_a>;
+	pinctrl-3 = <&uart5_pins_a>;
 	/delete-property/dmas;
 	/delete-property/dma-names;
-
-        status = "okay";
+    status = "okay";
 };
 
 
@@ -448,7 +448,7 @@ status = "disabled";
 //&m4_uart5 {
 //   pinctrl-names = "rproc_default";
 //   pinctrl-0 = <&m4_uart5_pins_mx>;
-//   status = "okay";
+//   status = "disabled";
 //};
 
 &sram {
