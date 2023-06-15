@@ -459,6 +459,7 @@ status = "disabled";
    status = "okay";
 };
 
+
 &sram {
 	dma_pool: dma_pool@0 {
 		reg = <0x50000 0x10000>;
