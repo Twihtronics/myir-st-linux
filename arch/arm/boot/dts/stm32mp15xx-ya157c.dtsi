@@ -179,6 +179,14 @@
         };
 };
 
+&bsec{
+	status = "okay";
+
+	/* USER CODE BEGIN bsec */
+	/* USER CODE END bsec */
+};
+
+
 &cpu0{
 	cpu-supply = <&vddcore>;
 };
@@ -411,7 +419,7 @@
 	pinctrl-3 = <&uart5_pins_a>;
 	/delete-property/dmas;
 	/delete-property/dma-names;
-	status = "okay";
+	status = "disabled";
 };
 
 
@@ -445,11 +453,11 @@
 status = "disabled";
 };
 
-//&m4_uart5 {
-//   pinctrl-names = "rproc_default";
-//   pinctrl-0 = <&m4_uart5_pins_mx>;
-//   status = "okay";
-//};
+&m4_uart5 {
+   pinctrl-names = "default";
+   pinctrl-0 = <&m4_uart5_pins_mx>;
+   status = "okay";
+};
 
 &sram {
 	dma_pool: dma_pool@0 {
@@ -594,3 +602,5 @@ phys = <&usbphyc_port1>;
 	vdda-supply = <&vdd>;
 	status = "okay";
 };
+
+
