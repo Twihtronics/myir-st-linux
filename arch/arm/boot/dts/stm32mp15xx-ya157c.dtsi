@@ -419,7 +419,7 @@
 	pinctrl-3 = <&uart5_pins_a>;
 	/delete-property/dmas;
 	/delete-property/dma-names;
-	status = "okay";
+	status = "disabled";
 };
 
 
@@ -449,14 +449,14 @@
 
 };
 
-&m4_dma2{
+/*&m4_dma2{
 status = "disabled";
-};
+};*/
 
 &m4_uart5 {
    pinctrl-names = "default";
    pinctrl-0 = <&m4_uart5_pins_mx>;
-   status = "disabled";
+   status = "okay";
 };
 
 
