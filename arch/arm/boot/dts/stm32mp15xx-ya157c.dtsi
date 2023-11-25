@@ -552,26 +552,26 @@ status = "disabled";
 
 /*usb host*/
 &usbh_ehci {
-	phys = <&usbphyc_port0>;
-	phy-names = "usb";
+	phys = <&usbphyc_port0>, <&usbphyc_port1 1>;
+	phy-names = "usb", "usb";
 	status = "okay";
 };
 
 /*USB*/
 &usbh_ohci {
-   phys = <&usbphyc_port0>; 
-   phy-names = "usb";
+   phys = <&usbphyc_port0>, <&usbphyc_port1 1>; 
+   phy-names = "usb","usb";
    status = "okay";
 };
 
 /*otg*/
 &usbotg_hs {
 	//phys = <&usbphyc_port1 0>;
-phys = <&usbphyc_port1>;
+	//phys = <&usbphyc_port1>;
 	//phy-names = "usb2-phy";
-	phy-names = "usb";
+	//phy-names = "usb";
 	//usb-role-switch;
-	status = "okay";
+	status = "disabled";
 
 	/*port {
 		usbotg_hs_ep: endpoint {
