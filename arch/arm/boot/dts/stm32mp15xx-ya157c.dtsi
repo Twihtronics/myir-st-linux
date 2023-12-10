@@ -553,7 +553,7 @@ status = "disabled";
 /*usb host*/
 &usbh_ehci {
 	phys = <&usbphyc_port0>, <&usbphyc_port1 1>;
-	phy-names = "usb", "usb";
+	phy-names = "usb","usb";
 	status = "okay";
 };
 
